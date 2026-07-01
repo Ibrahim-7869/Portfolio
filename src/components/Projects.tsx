@@ -11,6 +11,7 @@ interface Project {
   category: Category;
   tech: string[];
   github: string;
+  liveDemo?: string;
   featured: boolean;
   highlights: string[];
 }
@@ -24,6 +25,7 @@ const projects: Project[] = [
     category: 'backend',
     featured: true,
     github: 'https://github.com/Ibrahim-7869',
+    liveDemo: '#',
     tech: ['Python', 'Django', 'DRF', 'SQLite', 'JWT'],
     highlights: [
       '8+ REST API endpoints with server-rendered views',
@@ -40,6 +42,7 @@ const projects: Project[] = [
     category: 'devops',
     featured: true,
     github: 'https://github.com/Ibrahim-7869/100-days-of-devops',
+    liveDemo: '#',
     tech: ['Docker', 'Kubernetes', 'Terraform', 'AWS', 'GitHub Actions'],
     highlights: [
       'Container orchestration with Kubernetes',
@@ -56,6 +59,7 @@ const projects: Project[] = [
     category: 'fullstack',
     featured: false,
     github: 'https://github.com/Ibrahim-7869',
+    liveDemo: '#',
     tech: ['JavaScript', 'PHP', 'MySQL', 'REST API'],
     highlights: [
       'End-to-end product ownership',
@@ -127,7 +131,22 @@ export default function Projects() {
               }`}
             >
               <div className={`${project.featured ? 'grid md:grid-cols-2' : ''}`}>
-                {/* Header section */}
+                {/* Highlights section - Left side for featured */}
+                <div className={`p-8 bg-[#0a0a0a] border-t md:border-t-0 md:border-r border-[#262626] ${project.featured ? '' : 'hidden'}`}>
+                  <h4 className="font-mono text-xs text-[#525252] uppercase tracking-wider mb-6">
+                    Implementation Details
+                  </h4>
+                  <ul className="space-y-4">
+                    {project.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <ChevronRight className="w-4 h-4 text-[#ff6b35] flex-shrink-0 mt-0.5" />
+                        <span className="text-[#737373] text-sm leading-relaxed">{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Header section - Right side for featured */}
                 <div className={`p-8 ${project.featured ? '' : ''}`}>
                   <div className="flex items-start justify-between mb-6">
                     <div>
@@ -167,31 +186,27 @@ export default function Projects() {
                   </div>
 
                   {/* Link */}
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[#ff6b35] font-mono text-xs hover:gap-3 transition-all"
-                  >
-                    <Github className="w-4 h-4" />
-                    VIEW CODE
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-
-                {/* Highlights section */}
-                <div className={`p-8 bg-[#0a0a0a] border-t md:border-t-0 md:border-l border-[#262626] ${project.featured ? '' : 'hidden'}`}>
-                  <h4 className="font-mono text-xs text-[#525252] uppercase tracking-wider mb-6">
-                    Implementation Details
-                  </h4>
-                  <ul className="space-y-4">
-                    {project.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <ChevronRight className="w-4 h-4 text-[#ff6b35] flex-shrink-0 mt-0.5" />
-                        <span className="text-[#737373] text-sm leading-relaxed">{h}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#ff6b35] font-mono text-xs hover:gap-3 transition-all"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      LIVE DEMO
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#ff6b35] font-mono text-xs hover:gap-3 transition-all"
+                    >
+                      <Github className="w-4 h-4" />
+                      VIEW CODE
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -46,6 +46,8 @@ export default function Contact() {
         throw new Error('Supabase is not configured. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your environment.');
       }
 
+      // Save to Supabase database
+      // The database trigger will automatically call the Edge Function to send email
       const { error: dbError } = await supabase.from('contact_messages').insert({
         name: data.name,
         email: data.email,
@@ -53,14 +55,19 @@ export default function Contact() {
         message: data.message,
       });
 
-      if (dbError) throw dbError;
+      if (dbError) {
+        console.error('Database error:', dbError);
+        throw dbError;
+      }
 
       setStatus('success');
       setData({ name: '', email: '', subject: '', message: '' });
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
       setStatus('error');
-      setError(err instanceof Error ? err.message : 'Failed to send message');
+      const errorMessage = err instanceof Error ? err.message : 'Failed to send message';
+      setError(errorMessage);
+      console.error('Contact form error:', err);
     }
   };
 
