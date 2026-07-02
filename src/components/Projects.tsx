@@ -10,7 +10,7 @@ interface Project {
   longDescription: string;
   category: Category;
   tech: string[];
-  github: string;
+  github?: string;
   liveDemo?: string;
   featured: boolean;
   highlights: string[];
@@ -42,7 +42,6 @@ const projects: Project[] = [
     category: 'devops',
     featured: true,
     github: 'https://github.com/Ibrahim-7869/100-days-of-devops',
-    liveDemo: '#',
     tech: ['Docker', 'Kubernetes', 'Terraform', 'AWS', 'GitHub Actions'],
     highlights: [
       'Container orchestration with Kubernetes',
@@ -58,8 +57,7 @@ const projects: Project[] = [
     longDescription: 'Full-stack SMM platform with real-time social media interactions and async data handling.',
     category: 'fullstack',
     featured: false,
-    github: 'https://github.com/Ibrahim-7869',
-    liveDemo: '#',
+    liveDemo: 'https://thepaksmm.com',
     tech: ['JavaScript', 'PHP', 'MySQL', 'REST API'],
     highlights: [
       'End-to-end product ownership',
@@ -109,11 +107,10 @@ export default function Projects() {
             <button
               key={filter.key}
               onClick={() => setActiveFilter(filter.key)}
-              className={`px-6 py-3 font-mono text-xs tracking-wider border transition-all whitespace-nowrap ${
-                activeFilter === filter.key
-                  ? 'bg-[#ff6b35] text-black border-[#ff6b35]'
-                  : 'bg-transparent text-[#525252] border-[#262626] hover:border-[#404040] hover:text-[#737373]'
-              }`}
+              className={`px-6 py-3 font-mono text-xs tracking-wider border transition-all whitespace-nowrap ${activeFilter === filter.key
+                ? 'bg-[#ff6b35] text-black border-[#ff6b35]'
+                : 'bg-transparent text-[#525252] border-[#262626] hover:border-[#404040] hover:text-[#737373]'
+                }`}
             >
               <span className="text-[#404040] mr-2">{String(i + 1).padStart(2, '0')}</span>
               {filter.label}
@@ -126,9 +123,8 @@ export default function Projects() {
           {filtered.map((project) => (
             <div
               key={project.id}
-              className={`group bg-[#141414] border border-[#262626] overflow-hidden hover:border-[#ff6b35]/50 transition-all ${
-                project.featured ? 'md:col-span-2' : ''
-              }`}
+              className={`group bg-[#141414] border border-[#262626] overflow-hidden hover:border-[#ff6b35]/50 transition-all ${project.featured ? 'md:col-span-2' : ''
+                }`}
             >
               <div className={`${project.featured ? 'grid md:grid-cols-2' : ''}`}>
                 {/* Highlights section - Left side for featured */}
@@ -186,16 +182,20 @@ export default function Projects() {
                   </div>
 
                   {/* Link */}
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href={project.liveDemo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[#ff6b35] font-mono text-xs hover:gap-3 transition-all"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      LIVE DEMO
-                    </a>
+                  {project.liveDemo ? (
+                    <div className="flex flex-wrap gap-3">
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[#ff6b35] font-mono text-xs hover:gap-3 transition-all"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        LIVE DEMO
+                      </a>
+                    </div>
+                  ) : null}
+                  {project.github ? (
                     <a
                       href={project.github}
                       target="_blank"
@@ -204,29 +204,28 @@ export default function Projects() {
                     >
                       <Github className="w-4 h-4" />
                       VIEW CODE
-                      <ExternalLink className="w-3 h-3" />
                     </a>
-                  </div>
+                  ) : null}
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* View all link */}
-        <div className="mt-12 text-center">
-          <a
-            href="https://github.com/Ibrahim-7869"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-mono text-xs text-[#525252] hover:text-[#ff6b35] transition-colors"
-          >
-            <Github className="w-4 h-4" />
-            VIEW ALL PROJECTS ON GITHUB
-            <ExternalLink className="w-3 h-3" />
-          </a>
-        </div>
       </div>
-    </section>
+
+      {/* View all link */}
+      <div className="mt-12 text-center">
+        <a
+          href="https://github.com/Ibrahim-7869"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 font-mono text-xs text-[#525252] hover:text-[#ff6b35] transition-colors"
+        >
+          <Github className="w-4 h-4" />
+          VIEW ALL PROJECTS ON GITHUB
+          <ExternalLink className="w-3 h-3" />
+        </a>
+      </div>
+    </div>
+    </section >
   );
 }
