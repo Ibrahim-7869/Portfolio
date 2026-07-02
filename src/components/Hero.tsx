@@ -57,7 +57,7 @@ export default function Hero() {
         {/* Content area */}
         <div className="flex-1 flex flex-col justify-center px-8 lg:px-16 xl:px-24 max-w-6xl mx-auto">
           {/* Top meta info */}
-          <div className="flex items-center gap-4 mb-12 font-mono text-sm text-[#737373] animate-slide-left">
+          <div className="flex items-center gap-2 sm:gap-4 mb-12 font-mono text-sm text-[#737373] animate-slide-left">
             <span className="flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
               AVAILABLE FOR WORK
@@ -70,7 +70,7 @@ export default function Hero() {
 
           {/* Main headline */}
           <div className="animate-slide-left" style={{ animationDelay: '0.1s' }}>
-            <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-[0.9] mb-6">
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-[0.9] mb-6">
               MUHAMMAD
               <br />
               <span className="text-[#ff6b35]">IBRAHIM</span>
