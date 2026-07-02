@@ -121,7 +121,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="font-mono text-xs text-[#525252] uppercase mb-1">Email</div>
-                    <a href="mailto:Majidibrahim113@gmail.com" className="text-white hover:text-[#ff6b35] transition-colors">
+                    {/* Fixed webmail client direct redirection link */}
+                    <a 
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=Majidibrahim113@gmail.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-white hover:text-[#ff6b35] transition-colors"
+                    >
                       Majidibrahim113@gmail.com
                     </a>
                   </div>
@@ -203,7 +209,7 @@ export default function Contact() {
                       value={data.name}
                       onChange={handleChange}
                       required
-                      placeholder="John Doe"
+                      placeholder="Enter your name"
                       className="w-full bg-[#0a0a0a] border border-[#262626] px-4 py-3 text-white placeholder-[#404040] font-mono text-sm focus:outline-none focus:border-[#ff6b35] transition-colors"
                     />
                   </div>
@@ -215,12 +221,12 @@ export default function Contact() {
                       Your Email
                     </label>
                     <input
-                      type="email"
+                      type="type"
                       name="email"
                       value={data.email}
                       onChange={handleChange}
                       required
-                      placeholder="john@example.com"
+                      placeholder="user@example.com"
                       className="w-full bg-[#0a0a0a] border border-[#262626] px-4 py-3 text-white placeholder-[#404040] font-mono text-sm focus:outline-none focus:border-[#ff6b35] transition-colors"
                     />
                   </div>

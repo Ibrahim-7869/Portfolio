@@ -1,9 +1,27 @@
 import { Github, Linkedin, Mail, Terminal, ArrowUp } from 'lucide-react';
 
 const socials = [
-  { name: 'GitHub', href: 'https://github.com/Ibrahim-7869', icon: Github },
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/muhammed-ibrahim-cs', icon: Linkedin },
-  { name: 'Email', href: 'mailto:Majidibrahim113@gmail.com', icon: Mail },
+  { 
+    name: 'GitHub', 
+    href: 'https://github.com/Ibrahim-7869', 
+    icon: Github,
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  },
+  { 
+    name: 'LinkedIn', 
+    href: 'https://linkedin.com/in/muhammed-ibrahim-cs', 
+    icon: Linkedin,
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  },
+  { 
+    name: 'Email', 
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=Majidibrahim113@gmail.com', 
+    icon: Mail,
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  },
 ];
 
 const navLinks = [
@@ -82,7 +100,12 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="text-[#737373]">
                 <span className="text-[#525252]">Email:</span>{' '}
-                <a href="mailto:Majidibrahim113@gmail.com" className="hover:text-[#ff6b35] transition-colors">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=Majidibrahim113@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#ff6b35] transition-colors"
+                >
                   Majidibrahim113@gmail.com
                 </a>
               </div>

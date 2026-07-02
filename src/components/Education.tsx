@@ -148,7 +148,7 @@ export default function Education() {
             {/* Graduation estimate */}
             <div className="bg-[#141414] border border-[#262626] p-8 mb-6">
               <div className="font-mono text-xs text-[#525252] uppercase mb-4">Expected Graduation</div>
-              <div className="font-display text-3xl font-bold text-white mb-2">2025</div>
+              <div className="font-display text-3xl font-bold text-white mb-2">2027</div>
               <div className="text-[#737373] text-sm">
                 {education.totalSems - education.currentSem} semesters remaining
               </div>

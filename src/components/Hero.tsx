@@ -129,10 +129,6 @@ export default function Hero() {
               <div className="text-4xl font-display font-bold text-white mb-1">500+</div>
               <div className="text-xs font-mono text-[#525252] uppercase tracking-wider">Users Supported</div>
             </div>
-            <div>
-              <div className="text-4xl font-display font-bold text-white mb-1">8+</div>
-              <div className="text-xs font-mono text-[#525252] uppercase tracking-wider">REST Endpoints</div>
-            </div>
             <div className="hidden sm:block">
               <div className="text-4xl font-display font-bold text-white mb-1">100</div>
               <div className="text-xs font-mono text-[#525252] uppercase tracking-wider">Days of DevOps</div>
@@ -160,21 +156,13 @@ export default function Hero() {
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="mailto:Majidibrahim113@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=Majidibrahim113@gmail.com" target='_blank'
             className="text-[#525252] hover:text-[#ff6b35] transition-colors"
           >
             <Mail className="w-5 h-5" />
           </a>
           <div className="w-px h-32 bg-[#262626]" />
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#525252]">
-        <div className="w-px h-8 bg-[#262626]" />
-        <span className="text-xs font-mono uppercase tracking-widest rotate-90 origin-center translate-x-4">
-          Scroll
-        </span>
       </div>
     </section>
   );
